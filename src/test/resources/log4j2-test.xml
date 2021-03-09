@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="DEBUG">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%highlight{%d{yyyy-MM-dd HH:mm:ss}:
+             [%-5p] :%c{1}:%L - %msg%n}{FATAL=red ERROR=red, WARN=yellow
+              INFO=black DEBUG=green, Trace=blue}"/>
+        </Console>
+        <File name="Logs" fileName="logs/output.log" immediateflush="false"  append="false">
+                <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} : [%-5p] :%c{1}:%L -%m%n"/>
+        </File>
+
+    </Appenders>
+    <Loggers>
+        <Logger name="com.foo.Bar" level="DEBUG">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="Logs"/>
+        </Logger>
+        <Root level="DEBUG">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="Logs"/>
+        </Root>
+    </Loggers>
+</Configuration>
